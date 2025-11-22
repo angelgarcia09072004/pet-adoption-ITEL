@@ -1,0 +1,128 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background: white;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff8157;
+}
+
+.nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #2c2c2c;
+  transition: 0.2s ease;
+}
+
+.nav a:hover {
+  color: #ff8157;
+}
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ff8157;
+}
+
+.signin-btn {
+  background: transparent;
+  color: #ff8157;
+}
+
+.signup-btn {
+  background: #ff8157;
+  color: white;
+}
+.hero {
+  background-image: url("/bg1firstscreen.png");
+  background-size: cover;
+  background-position: center;
+  padding: 130px 20px;
+  text-align: center;
+}
+
+.hero-center-content {
+  max-width: 650px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 52px;
+  color: #ff8157;
+  margin-bottom: 10px;
+}
+
+.hero-btn {
+  background: #ff8157;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+}
+.hero {
+  position: relative;
+  background-image: url("/bg1firstscreen.png");
+  background-size: cover;
+  background-position: center;
+  padding: 150px 20px;
+  text-align: center;
+  height: 100vh; /* FULL SCREEN */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55); /* SOFT WHITE TRANSPARENCY */
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.hero-center-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  color: #ff8157;
+}
+
+.hero-btn {
+  background: #ff8157;
+  color: white;
+  padding: 15px 32px;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+

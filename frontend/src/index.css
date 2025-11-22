@@ -1,0 +1,480 @@
+/* --------------------------------------------------
+   GLOBAL STYLE
+-------------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #fff8f1, #ffeede);
+  color: #333;
+}
+
+/* Reusable Title */
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* Wrapper */
+.home-wrapper {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   NAVBAR
+-------------------------------------------------- */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 55px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff8157;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+.nav-links li a:hover {
+  color: #ff8157;
+}
+
+/* Auth buttons (before login) */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.auth-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid #ff8157;
+  transition: 0.2s ease-in-out;
+}
+
+.signin-btn {
+  background: transparent;
+  color: #ff8157;
+}
+
+.signin-btn:hover {
+  background: #ff8157;
+  color: white;
+}
+
+.signup-btn {
+  background: #ff8157;
+  color: white;
+}
+
+.signup-btn:hover {
+  background: #ff562f;
+}
+
+/* --------------------------------------------------
+   HERO FIRST SCREEN
+-------------------------------------------------- */
+
+.hero {
+  height: 100vh;
+  background-image: url("/bg1firstscreen.png");
+  background-size: contain;     /* ← makes full image visible */
+  background-repeat: no-repeat; /* ← stops repeating */
+  background-position: center;
+  background-color: #fff8f1;    /* ← adds clean background behind pets */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.hero-center-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 680px;
+  padding: 30px;
+}
+
+.hero-center-content h1 {
+  font-size: 60px;
+  line-height: 1.1;
+  color: #ff6f40;
+  margin-bottom: 14px;
+}
+
+.hero-center-content p {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 35px;
+}
+
+.hero-btn {
+  background: #ff6f40;
+  color: white;
+  padding: 14px 36px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.hero-btn:hover {
+  background: #ff4d22;
+}
+
+/* --------------------------------------------------
+   AUTH FORMS (SIGN IN / SIGN UP)
+-------------------------------------------------- */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #fff2e9, #ffe0cc);
+}
+
+.auth-card {
+  width: 410px;
+  background: white;
+  padding: 35px 30px;
+  border-radius: 18px;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.10);
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #ff6f40;
+  font-weight: 700;
+}
+
+.auth-card label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-top: 12px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.auth-btn-submit {
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  background: #ff8157;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.auth-btn-submit:hover {
+  background: #ff562f;
+}
+
+.auth-bottom {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.auth-bottom a {
+  color: #ff8157;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Back button */
+.auth-back-btn {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: #ff8157;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.auth-back-btn:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------
+   PET SERVICES SECTION
+-------------------------------------------------- */
+
+.services-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 0;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.pet-card {
+  background: white;
+  width: 260px;
+  padding: 18px;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.pet-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.pet-card h3 {
+  margin: 8px 0 5px 0;
+}
+
+.pet-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+  border: none;
+}
+
+.available {
+  background: #ff8157;
+  color: white;
+}
+
+.adopted {
+  background: gray;
+  color: white;
+}
+
+.pending {
+  background: #ffc107;
+  color: black;
+}
+
+/* --------------------------------------------------
+   GALLERY SECTION
+-------------------------------------------------- */
+
+.gallery-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --------------------------------------------------
+   ABOUT US PAGE
+-------------------------------------------------- */
+
+.about-wrapper {
+  padding: 80px 0;
+  background: #ffe6d0;
+}
+
+.about-card {
+  background: white;
+  max-width: 700px;
+  padding: 40px;
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------
+   AUTH FORMS (SIGN IN / SIGN UP)
+-------------------------------------------------- */
+
+.auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #fff8f1, #fff1e6);
+}
+
+.auth-card {
+  width: 420px;
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+  margin-bottom: 12px;
+  color: #ff6f40;
+}
+
+.auth-card label {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-top: 12px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.auth-card a {
+  color: #ff8157;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   PET DETAILS PAGE
+-------------------------------------------------- */
+
+.details-wrapper {
+  padding: 70px 0;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#fff6ef, #ffe7d4);
+}
+
+.details-card {
+  width: 550px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.details-img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+.details-title {
+  font-size: 34px;
+  color: #ff8157;
+  margin-bottom: 15px;
+}
+
+.details-info {
+  font-size: 18px;
+  text-align: left;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.status-tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.status-tag.available {
+  background: #ff8157;
+}
+
+.status-tag.adopted {
+  background: gray;
+}
+
+.status-tag.pending {
+  background: #ffc107;
+  color: black;
+}
+
+/* Button Area */
+.details-action {
+  margin-top: 20px;
+}
+
+/* Back Button */
+.back-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff8157;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.back-btn:hover {
+  color: #ff562f;
+}
+
+/* Pet Image Filename from DB */
+
