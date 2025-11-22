@@ -15,7 +15,6 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
-// 👇 THIS IS THE LINE I CHANGED FOR YOU
 app.get('/', (req, res) => res.send('Pets CRUD API is running!'))
 
 app.use('/api/v1/auth', authRoutes)
