@@ -34,9 +34,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
 
         {/* USER PAGES */}
-        <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
-        
-        {/* NOW THESE LINKS WORK: */}
+        <Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} /> 
         <Route path="/services" element={<PrivateRoute><ServicesPage /></PrivateRoute>} />
         <Route path="/gallery" element={<PrivateRoute><GalleryPage /></PrivateRoute>} />
         <Route path="/about" element={<PrivateRoute><AboutPage /></PrivateRoute>} />
