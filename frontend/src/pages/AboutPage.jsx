@@ -3,16 +3,12 @@ import React from 'react';
 const AboutPage = () => {
   return (
     <div style={styles.pageContainer}>
-      
-      {/* SECTION 1: HEADER */}
       <div style={styles.header}>
         <h1 style={styles.title}>ABOUT ADOPTAILS</h1>
         <p style={styles.subtitle}>Connecting pets with loving homes since 2024.</p>
       </div>
 
       <div style={styles.contentContainer}>
-        
-        {/* SECTION 2 & 3: MISSION & VISION (Grid Layout) */}
         <div style={styles.gridRow}>
           {/* Mission */}
           <div style={styles.card}>
@@ -32,8 +28,6 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-
-        {/* SECTION 4: WHY ADOPT? (Highlight Box) */}
         <div style={styles.highlightBox}>
           <h2 style={{...styles.cardTitle, color: 'white'}}>Why Adopt?</h2>
           <p style={{...styles.text, color: 'white', fontWeight: '500'}}>
@@ -41,8 +35,6 @@ const AboutPage = () => {
             Adopt, don’t shop!
           </p>
         </div>
-
-        {/* SECTION 5: CONTACT INFORMATION */}
         <div style={styles.contactCard}>
           <h2 style={styles.cardTitle}>Get in Touch</h2>
           <p style={{...styles.text, marginBottom: '30px'}}>We are here to help! Contact us anytime.</p>
@@ -113,7 +105,7 @@ const styles = {
   },
   title: {
     fontSize: '3.5rem',
-    color: '#ff7a59', // Coral Accent
+    color: '#ff7a59', 
     fontWeight: '800',
     marginBottom: '10px',
     letterSpacing: '1px',
@@ -134,16 +126,16 @@ const styles = {
   gridRow: {
     display: 'flex',
     gap: '30px',
-    flexWrap: 'wrap', // Makes it responsive on mobile
+    flexWrap: 'wrap', 
     justifyContent: 'center',
   },
   card: {
     backgroundColor: 'white',
     padding: '40px',
-    borderRadius: '25px', // Rounded 2xl
-    boxShadow: '0 15px 35px rgba(0,0,0,0.05)', // Soft floating shadow
-    flex: '1', // Takes equal width
-    minWidth: '300px', // Prevents getting too squished
+    borderRadius: '25px', 
+    boxShadow: '0 15px 35px rgba(0,0,0,0.05)', 
+    flex: '1', 
+    minWidth: '300px', 
     textAlign: 'center',
     transition: 'transform 0.3s ease',
   },
@@ -159,12 +151,12 @@ const styles = {
     color: '#666',
   },
   highlightBox: {
-    backgroundColor: '#ff7a59', // Soft Coral
+    backgroundColor: '#ff7a59', 
     padding: '50px',
     borderRadius: '25px',
     textAlign: 'center',
     color: 'white',
-    boxShadow: '0 20px 40px rgba(255, 122, 89, 0.25)', // Colored shadow glow
+    boxShadow: '0 20px 40px rgba(255, 122, 89, 0.25)', 
   },
   contactCard: {
     backgroundColor: 'white',
@@ -175,7 +167,7 @@ const styles = {
   },
   contactGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', // Responsive Grid
+    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
     gap: '30px',
     marginTop: '30px',
     textAlign: 'left',

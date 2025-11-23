@@ -7,8 +7,6 @@ import SignUp from "./pages/SignUp.jsx";
 import PetDetails from "./pages/PetDetails";
 import Hero from "./components/Hero";
 import { Toaster } from "react-hot-toast";
-
-// IMPORT THE NEW PAGES HERE
 import ServicesPage from "./pages/ServicesPage"; 
 import GalleryPage from "./pages/GalleryPage";
 

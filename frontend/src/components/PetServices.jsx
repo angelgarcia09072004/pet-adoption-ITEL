@@ -1,8 +1,6 @@
-// C:\Users\user\Downloads\pet-adoption-api\frontend\src\components\PetServices.js
 import React, { useEffect, useState } from 'react';
-import PetCard from './PetCard'; // Import your existing PetCard
-import toast from 'react-hot-toast'; // For showing notifications
-// Assuming you have a CSS file for styling the grid or you use inline styles from ServicesPage
+import PetCard from './PetCard'; 
+import toast from 'react-hot-toast'; 
 
 const PetServices = () => {
   const [pets, setPets] = useState([]);
@@ -12,7 +10,7 @@ const PetServices = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/v1/pets'); // Your backend API endpoint
+        const response = await fetch('http://localhost:3000/api/v1/pets'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -21,7 +19,7 @@ const PetServices = () => {
       } catch (err) {
         setError("Failed to load pet services. Please try again later.");
         console.error("Error fetching pets:", err);
-        toast.error("Failed to load pet services."); // Use react-hot-toast
+        toast.error("Failed to load pet services."); 
       } finally {
         setLoading(false);
       }
@@ -43,7 +41,7 @@ const PetServices = () => {
       {pets.length === 0 ? (
         <div style={styles.message}>No pets available at the moment.</div>
       ) : (
-        <div style={styles.grid}> {/* This style needs to define your grid layout */}
+        <div style={styles.grid}> 
           {pets.map(pet => (
             <PetCard key={pet._id} pet={pet} />
           ))}
@@ -68,7 +66,7 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', // Responsive grid
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
     gap: '30px',
     justifyContent: 'center',
   },

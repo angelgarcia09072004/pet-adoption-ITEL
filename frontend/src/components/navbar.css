@@ -90,7 +90,7 @@
   background-position: center;
   padding: 150px 20px;
   text-align: center;
-  height: 100vh; /* FULL SCREEN */
+  height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +99,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.55); /* SOFT WHITE TRANSPARENCY */
+  background: rgba(255, 255, 255, 0.55); 
   backdrop-filter: blur(3px);
   z-index: 1;
 }

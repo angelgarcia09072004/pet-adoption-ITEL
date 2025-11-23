@@ -49,14 +49,14 @@ const ServicesPage = () => {
 const styles = {
   pageWrapper: {
     minHeight: '100vh',
-    backgroundColor: '#fffaf5', // Matches your theme
+    backgroundColor: '#fffaf5', 
     padding: '40px 20px',
     display: 'flex',
-    justifyContent: 'center', // Centers the main container
+    justifyContent: 'center', 
   },
   container: {
     width: '100%',
-    maxWidth: '1000px', // 👈 Limits width so cards don't get too far apart
+    maxWidth: '1000px', 
   },
   header: {
     textAlign: 'center',
@@ -75,9 +75,8 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    // Responsive: Cards are min 260px wide, fill remaining space
     gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', 
-    gap: '20px', // 👈 REDUCED GAP (Was likely larger before)
+    gap: '20px', 
     justifyContent: 'center',
   }
 };

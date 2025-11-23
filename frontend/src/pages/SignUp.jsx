@@ -33,10 +33,6 @@ const SignUp = () => {
             password: formData.password
         };
 
-        // ✅ FIXED URL: 
-        // 1. Port 3000 (Matches your backend terminal)
-        // 2. /api/v1/auth (Matches your server.js app.use)
-        // 3. /signup (Matches your auth.js router)
         const response = await fetch("http://localhost:3000/api/v1/auth/signup", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },

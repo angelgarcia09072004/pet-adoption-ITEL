@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast'; // IMPORT TOASTER HERE
+import toast, { Toaster } from 'react-hot-toast'; 
 
 const PetDetails = () => {
   const { id } = useParams();
@@ -18,7 +18,6 @@ const PetDetails = () => {
   }, [id]);
 
   const handleAdoptClick = () => {
-    // THIS WILL NOW SHOW UP BECAUSE <Toaster /> IS RENDERED BELOW
     toast.success("We will email you for more information. Please wait for our response!", {
       duration: 4000,
       style: {
@@ -30,7 +29,7 @@ const PetDetails = () => {
         fontWeight: '500',
         boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
         fontSize: '1rem',
-        maxWidth: '400px', // Ensures it doesn't get too wide
+        maxWidth: '400px', 
         textAlign: 'center'
       },
       iconTheme: {
@@ -45,9 +44,7 @@ const PetDetails = () => {
   return (
     <div style={styles.pageWrapper}>
       
-      {/* --- ADDED TOASTER COMPONENT HERE --- */}
       <Toaster position="top-center" reverseOrder={false} />
-      {/* ------------------------------------ */}
 
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');`}
@@ -117,7 +114,6 @@ const PetDetails = () => {
   );
 };
 
-// AESTHETIC STYLES
 const styles = {
   pageWrapper: {
     minHeight: '100vh',

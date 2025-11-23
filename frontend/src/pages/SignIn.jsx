@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 const SignIn = () => {
   const navigate = useNavigate();
 
-  // ✅ CHANGED: Use 'username' instead of 'email'
   const [formData, setFormData] = useState({
     username: "", 
     password: ""
@@ -19,11 +18,11 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-        // ✅ URL points to Port 3000
+        // URL points to Port 3000
         const response = await fetch("http://localhost:3000/api/v1/auth/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData), // Sends { username: "...", password: "..." }
+            body: JSON.stringify(formData), 
         });
 
         const data = await response.json();
@@ -31,11 +30,10 @@ const SignIn = () => {
         if (response.ok) {
             localStorage.setItem("token", data.token);
             
-            // Store user data if provided, otherwise store a basic object
             if (data.user) {
                 localStorage.setItem("user", JSON.stringify(data.user));
             } else {
-                // Fallback if backend doesn't send user object back
+        
                 localStorage.setItem("user", JSON.stringify({ username: formData.username }));
             }
             

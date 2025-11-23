@@ -102,10 +102,10 @@ body {
 .hero {
   height: 100vh;
   background-image: url("/bg1firstscreen.png");
-  background-size: contain;     /* ← makes full image visible */
-  background-repeat: no-repeat; /* ← stops repeating */
+  background-size: contain;     
+  background-repeat: no-repeat; 
   background-position: center;
-  background-color: #fff8f1;    /* ← adds clean background behind pets */
+  background-color: #fff8f1;    
 }
 
 .hero-overlay {
@@ -476,5 +476,4 @@ body {
   color: #ff562f;
 }
 
-/* Pet Image Filename from DB */
 

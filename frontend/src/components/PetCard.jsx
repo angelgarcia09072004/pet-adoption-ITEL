@@ -3,20 +3,12 @@ import { useNavigate } from "react-router-dom";
 const PetCard = ({ pet }) => {
   const navigate = useNavigate();
 
-  // ✅ FIXED IMAGE PATH LOGIC
-  // Since your images are in 'frontend/public/services',
-  // and your DB has "filename.jpg", we just add "/services/" to the front.
   const getImageUrl = (imagePath) => {
-    // 1. Fallback if no image exists
     if (!imagePath) return "https://via.placeholder.com/300x200?text=No+Image";
     
-    // 2. If it's already a full link (e.g., from Google), return it as is
     if (imagePath.startsWith("http")) return imagePath;
 
-    // 3. If the DB accidentally saved it with the folder already, just return it
     if (imagePath.startsWith("/services")) return imagePath;
-
-    // 4. THE FIX: Prepend the folder name found in your 'public' directory
     return `/services/${imagePath}`;
   };
 
@@ -129,7 +121,7 @@ const PetCard = ({ pet }) => {
           alt={pet.name} 
           className="pet-image"
           onError={(e) => { 
-            e.target.onerror = null; // Prevent infinite loop
+            e.target.onerror = null; 
             e.target.src = "https://via.placeholder.com/300x200?text=Image+Not+Found"; 
           }}
         />

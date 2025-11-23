@@ -160,7 +160,7 @@ const styles = {
     padding: '10px 25px',
     textDecoration: 'none',
     fontWeight: 'bold',
-    borderRadius: '50px', // Pill shape
+    borderRadius: '50px', 
     fontSize: '0.95rem',
     boxShadow: '0 4px 10px rgba(255, 127, 102, 0.2)',
     fontFamily: '"Quicksand", sans-serif',

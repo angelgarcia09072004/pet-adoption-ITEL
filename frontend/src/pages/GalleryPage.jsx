@@ -39,7 +39,7 @@ const styles = {
   title: {
     fontSize: '3rem', 
     color: '#ff7a59', 
-    fontWeight: '800', // Extra bold like About Us
+    fontWeight: '800', 
     textTransform: 'uppercase',
     marginBottom: '20px',
     letterSpacing: '1px',
@@ -47,7 +47,7 @@ const styles = {
   description: {
     color: '#555', 
     fontSize: '1.1rem', 
-    lineHeight: '1.8', // Better readability
+    lineHeight: '1.8',
     maxWidth: '800px', 
     margin: '0 auto', 
   }

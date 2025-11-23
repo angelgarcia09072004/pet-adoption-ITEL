@@ -15,7 +15,7 @@ const GallerySection = () => {
         // SHORT MESSAGE: "Saved!"
         toast.success("Saved!", {
           style: {
-            borderRadius: '50px', // Pill shape
+            borderRadius: '50px', 
             background: '#fff',
             color: '#333',
             padding: '10px 20px',
@@ -96,13 +96,11 @@ const GallerySection = () => {
 
   return (
     <section style={styles.section}>
-      
-      {/* UPDATED TOASTER: Top Center */}
       <Toaster 
         position="top-center" 
         reverseOrder={false}
         toastOptions={{
-          // Ensures it doesn't overlap with the navbar too much
+ 
           style: { marginTop: '20px' } 
         }}
       />
