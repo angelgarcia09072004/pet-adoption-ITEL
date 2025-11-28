@@ -7,7 +7,7 @@ const petSchema = new mongoose.Schema({
   age: Number,
   status: {
     type: String,
-    enum: ["PENDING", "ADOPTED", "RETURNED", "AVAILABLE"],
+    enum: ["PENDING", "ADOPTED", "AVAILABLE"],
     default: "AVAILABLE"
   }
 }, { timestamps: true })

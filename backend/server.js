@@ -7,7 +7,6 @@ import authRoutes from './routes/auth.js'
 import petRoutes from './routes/pets.js'
 
 dotenv.config()
-
 const app = express()
 const PORT = process.env.PORT || 5000
 

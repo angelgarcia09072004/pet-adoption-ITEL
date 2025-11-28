@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast'; 
+import AdoptionForm from '../components/AdoptionForm'; // Import the form
 
 const PetDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [pet, setPet] = useState(null);
+  
+  // State to control the Adoption Form Modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:3000/api/v1/pets/${id}`)
@@ -17,34 +21,19 @@ const PetDetails = () => {
       });
   }, [id]);
 
-  const handleAdoptClick = () => {
-    toast.success("We will email you for more information. Please wait for our response!", {
-      duration: 4000,
-      style: {
-        border: '1px solid #ff7a59',
-        padding: '16px',
-        color: '#333',
-        borderRadius: '12px',
-        background: '#fff',
-        fontWeight: '500',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-        fontSize: '1rem',
-        maxWidth: '400px', 
-        textAlign: 'center'
-      },
-      iconTheme: {
-        primary: '#ff7a59',
-        secondary: '#FFFAEE',
-      },
-    });
-  };
-
   if (!pet) return <div style={{textAlign: 'center', marginTop: '50px', color: '#777'}}>Loading furry friend...</div>;
 
   return (
     <div style={styles.pageWrapper}>
       
       <Toaster position="top-center" reverseOrder={false} />
+
+      {/* RENDER THE ADOPTION FORM MODAL HERE */}
+      <AdoptionForm 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        petName={pet.name} 
+      />
 
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');`}
@@ -92,7 +81,7 @@ const PetDetails = () => {
           {/* Buttons */}
           <div style={styles.buttonGroup}>
               <button 
-                  onClick={handleAdoptClick}
+                  onClick={() => setIsModalOpen(true)} // Opens the modal
                   style={styles.adoptBtn}
                   onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
                   onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
@@ -114,6 +103,7 @@ const PetDetails = () => {
   );
 };
 
+// ... existing styles object (no changes needed below this line)
 const styles = {
   pageWrapper: {
     minHeight: '100vh',
