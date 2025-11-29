@@ -89,8 +89,6 @@ const SignIn = () => {
         <p style={styles.subtitle}>Login to continue your journey.</p>
 
         <form onSubmit={handleSubmit} style={styles.form}>
-          
-          {/* ✅ CHANGED: Input is now for USERNAME */}
           <div style={styles.inputGroup}>
             <input
               type="text"
