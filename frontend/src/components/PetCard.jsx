@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import AdoptionForm from './AdoptionForm'; // Import the form
+import AdoptionForm from './AdoptionForm'; 
 
 const PetCard = ({ pet }) => {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for the modal
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   const getImageUrl = (imagePath) => {
     if (!imagePath) return "https://via.placeholder.com/300x200?text=No+Image";
@@ -13,8 +13,7 @@ const PetCard = ({ pet }) => {
     return `/services/${imagePath}`;
   };
 
-  // Helper to handle Status Logic
-  const status = pet.status || 'AVAILABLE'; // Default to AVAILABLE if missing
+  const status = pet.status || 'AVAILABLE'; 
 
   return (
     <>
@@ -135,7 +134,7 @@ const PetCard = ({ pet }) => {
               e.target.src = "https://via.placeholder.com/300x200?text=Image+Not+Found"; 
             }}
           />
-          {/* Status Badge Logic */}
+
           <div 
             className="status-badge"
             style={{
@@ -157,32 +156,29 @@ const PetCard = ({ pet }) => {
           </div>
 
           <div className="btn-container">
-            {/* BUTTON LOGIC START */}
+
             {status === 'AVAILABLE' ? (
-              // 1. AVAILABLE
               <button className="adopt-btn" onClick={() => setIsModalOpen(true)}>
                 ADOPT NOW
               </button>
             ) : status === 'PENDING' ? (
-              // 2. PENDING (ON PROCESS)
               <button 
                 className="adopt-btn" 
                 disabled 
-                style={{ backgroundColor: '#ed8936' }} // Darker orange
+                style={{ backgroundColor: '#ed8936' }} 
               >
                 ON PROCESS
               </button>
             ) : (
-              // 3. ADOPTED
+     
               <button 
                 className="adopt-btn" 
                 disabled 
-                style={{ backgroundColor: '#ccc', color: '#666' }} // Grey
+                style={{ backgroundColor: '#ccc', color: '#666' }} 
               >
                 ADOPTED
               </button>
             )}
-            {/* BUTTON LOGIC END */}
 
             <button className="details-btn" onClick={() => navigate(`/pet/${pet._id}`)}>
               View Details
@@ -190,8 +186,7 @@ const PetCard = ({ pet }) => {
           </div>
         </div>
       </div>
-
-      {/* RENDER THE ADOPTION FORM MODAL HERE */}
+      
       <AdoptionForm 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 

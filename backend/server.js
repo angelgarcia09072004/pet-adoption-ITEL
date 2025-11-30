@@ -36,7 +36,6 @@ connectDB(process.env.MONGO_URI)
     app.listen(PORT, () =>
       console.log(`Server running on http://localhost:${PORT}`)
     )
-    console.log("Connected to MongoDB")
     console.log(`Swagger Docs → http://localhost:${PORT}/api-docs`)
   })
   .catch(err => {

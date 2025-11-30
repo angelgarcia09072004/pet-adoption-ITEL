@@ -1,5 +1,6 @@
 import express from 'express'
-import { signup, login } from '../controllers/authController.js'
+// IMPORT deleteUser HERE
+import { signup, login, deleteUser } from '../controllers/authController.js'
 
 const router = express.Router()
 
@@ -44,7 +45,11 @@ router.get('/', (req, res) => {
  *       201:
  *         description: User registered successfully
  *       400:
- *         description: Username already taken
+ *         description: Missing required fields (Name, Email, or Password)
+ *       409:
+ *         description: Username or Email already exists
+ *       500:
+ *         description: Internal Server Error
  */
 router.post('/signup', signup)
 
@@ -74,8 +79,35 @@ router.post('/signup', signup)
  *       200:
  *         description: Login successful. Returns JWT token.
  *       400:
- *         description: Invalid username or password
+ *         description: Missing username or password
+ *       401:
+ *         description: Invalid credentials (Wrong password or email not found)
+ *       500:
+ *         description: Internal Server Error
  */
 router.post('/login', login)
+
+/**
+ * @swagger
+ * /api/v1/auth/{id}:
+ *   delete:
+ *     summary: Delete a user by ID
+ *     tags: [Auth]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The user ID to delete
+ *     responses:
+ *       200:
+ *         description: User deleted successfully
+ *       404:
+ *         description: User not found
+ *       500:
+ *         description: Server Error
+ */
+router.delete('/:id', deleteUser)
 
 export default router

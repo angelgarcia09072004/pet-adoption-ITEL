@@ -7,7 +7,7 @@ const options = {
     info: {
       title: "Pet Adoption API",
       version: "1.0.0",
-      description: "API documentation for Pet Adoption ITEL project",
+      description: "API documentation for Pet Adoption ITEL final project",
     },
     servers: [
       {
