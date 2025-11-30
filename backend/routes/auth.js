@@ -3,6 +3,10 @@ import { signup, login } from '../controllers/authController.js'
 
 const router = express.Router()
 
+router.get('/', (req, res) => {
+  res.json({ message: "Auth API is working" })
+})
+
 /**
  * @swagger
  * tags:
@@ -12,7 +16,7 @@ const router = express.Router()
 
 /**
  * @swagger
- * /api/auth/signup:
+ * /api/v1/auth/signup:
  *   post:
  *     summary: Register a new user
  *     tags: [Auth]
@@ -29,13 +33,13 @@ const router = express.Router()
  *             properties:
  *               name:
  *                 type: string
- *                 example: Angel Anne Garcia
+ *                 example: Lovely
  *               username:
  *                 type: string
- *                 example: angel123
+ *                 example: user3@example.com
  *               password:
  *                 type: string
- *                 example: mypassword123
+ *                 example: 12345
  *     responses:
  *       201:
  *         description: User registered successfully
@@ -46,7 +50,7 @@ router.post('/signup', signup)
 
 /**
  * @swagger
- * /api/auth/login:
+ * /api/v1/auth/login:
  *   post:
  *     summary: Login user & get JWT token
  *     tags: [Auth]
@@ -62,10 +66,10 @@ router.post('/signup', signup)
  *             properties:
  *               username:
  *                 type: string
- *                 example: angel123
+ *                 example: user1@example.com
  *               password:
  *                 type: string
- *                 example: mypassword123
+ *                 example: 12345
  *     responses:
  *       200:
  *         description: Login successful. Returns JWT token.

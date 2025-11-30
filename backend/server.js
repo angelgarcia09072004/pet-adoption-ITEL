@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   res.send('Pet Adoption API is running!')
 })
 
-// Swagger UI route (IMPORTANT)
+// Swagger UI route 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 // API routes
