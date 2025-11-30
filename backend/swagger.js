@@ -14,8 +14,7 @@ const options = {
         url: "http://localhost:3000"
       },
       {
-        // USE JUST THE MAIN DOMAIN HERE:
-        url: "https://pet-adoption-itel.vercel.app" 
+        url: "https://pet-adoption-itel-deployment.vercel.app" 
       }
     ]
   },
