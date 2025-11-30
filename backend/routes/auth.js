@@ -1,5 +1,4 @@
 import express from 'express'
-// IMPORT deleteUser HERE
 import { signup, login, deleteUser } from '../controllers/authController.js'
 
 const router = express.Router()

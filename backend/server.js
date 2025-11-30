@@ -15,7 +15,17 @@ const PORT = process.env.PORT || 3000
 
 // Middleware
 app.use(helmet())
-app.use(cors())
+
+// --- FIXED CORS CONFIGURATION ---
+// This tells the browser: "It's okay to accept requests from anywhere"
+app.use(cors({
+  origin: "*", // Allow all origins (Localhost + Production)
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}))
+// --------------------------------
+
 app.use(express.json())
 
 // Root route
