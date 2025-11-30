@@ -13,6 +13,9 @@ const PetCard = ({ pet }) => {
     return `/services/${imagePath}`;
   };
 
+  // Helper to handle Status Logic
+  const status = pet.status || 'AVAILABLE'; // Default to AVAILABLE if missing
+
   return (
     <>
       <div className="pet-card">
@@ -52,12 +55,10 @@ const PetCard = ({ pet }) => {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(255, 255, 255, 0.95);
             padding: 5px 12px;
             border-radius: 12px;
             font-size: 0.75rem;
             font-weight: 700;
-            color: #ff7a59;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-transform: uppercase;
           }
@@ -104,6 +105,13 @@ const PetCard = ({ pet }) => {
           }
           .adopt-btn:hover { background-color: #e6603d; }
 
+          /* Disabled Button Styles */
+          .adopt-btn:disabled {
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+          }
+
           .details-btn {
             background: white;
             border: 1px solid #ff7a59;
@@ -127,7 +135,18 @@ const PetCard = ({ pet }) => {
               e.target.src = "https://via.placeholder.com/300x200?text=Image+Not+Found"; 
             }}
           />
-          <div className="status-badge">{pet.status || 'Available'}</div>
+          {/* Status Badge Logic */}
+          <div 
+            className="status-badge"
+            style={{
+              backgroundColor: status === 'AVAILABLE' ? 'rgba(255, 255, 255, 0.95)' : 
+                               status === 'PENDING' ? '#fffaf0' : '#fff5f5',
+              color: status === 'AVAILABLE' ? '#ff7a59' : 
+                     status === 'PENDING' ? '#c05621' : '#c53030'
+            }}
+          >
+            {status === 'AVAILABLE' ? 'Available' : status === 'PENDING' ? '⏳ Pending' : '🚫 Adopted'}
+          </div>
         </div>
 
         <div className="card-content">
@@ -138,10 +157,33 @@ const PetCard = ({ pet }) => {
           </div>
 
           <div className="btn-container">
-            {/* Opens the modal on click */}
-            <button className="adopt-btn" onClick={() => setIsModalOpen(true)}>
-              ADOPT NOW
-            </button>
+            {/* BUTTON LOGIC START */}
+            {status === 'AVAILABLE' ? (
+              // 1. AVAILABLE
+              <button className="adopt-btn" onClick={() => setIsModalOpen(true)}>
+                ADOPT NOW
+              </button>
+            ) : status === 'PENDING' ? (
+              // 2. PENDING (ON PROCESS)
+              <button 
+                className="adopt-btn" 
+                disabled 
+                style={{ backgroundColor: '#ed8936' }} // Darker orange
+              >
+                ON PROCESS
+              </button>
+            ) : (
+              // 3. ADOPTED
+              <button 
+                className="adopt-btn" 
+                disabled 
+                style={{ backgroundColor: '#ccc', color: '#666' }} // Grey
+              >
+                ADOPTED
+              </button>
+            )}
+            {/* BUTTON LOGIC END */}
+
             <button className="details-btn" onClick={() => navigate(`/pet/${pet._id}`)}>
               View Details
             </button>

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast'; 
-import AdoptionForm from '../components/AdoptionForm'; // Import the form
+import AdoptionForm from '../components/AdoptionForm'; 
 
 const PetDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [pet, setPet] = useState(null);
   
-  // State to control the Adoption Form Modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -23,12 +22,24 @@ const PetDetails = () => {
 
   if (!pet) return <div style={{textAlign: 'center', marginTop: '50px', color: '#777'}}>Loading furry friend...</div>;
 
+  // Helper to determine status Badge colors and text
+  const getStatusBadge = () => {
+    if (pet.status === 'AVAILABLE') {
+      return { bg: '#e6fffa', color: '#2c7a7b', text: '✅ Available' };
+    } else if (pet.status === 'PENDING') {
+      return { bg: '#fffaf0', color: '#c05621', text: '⏳ Pending' }; // Orange for Pending
+    } else {
+      return { bg: '#fff5f5', color: '#c53030', text: '🚫 Adopted' };
+    }
+  };
+
+  const badgeStyle = getStatusBadge();
+
   return (
     <div style={styles.pageWrapper}>
       
       <Toaster position="top-center" reverseOrder={false} />
 
-      {/* RENDER THE ADOPTION FORM MODAL HERE */}
       <AdoptionForm 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
@@ -62,8 +73,10 @@ const PetDetails = () => {
             {/* Badges */}
             <div style={styles.badgesRow}>
               <span style={styles.badge}>🎂 {pet.age ? `${pet.age} Years Old` : 'Age Unknown'}</span>
-              <span style={{...styles.badge, backgroundColor: pet.status === 'AVAILABLE' ? '#e6fffa' : '#fff5f5', color: pet.status === 'AVAILABLE' ? '#2c7a7b' : '#c53030'}}>
-                {pet.status === 'AVAILABLE' ? '✅ Available' : '🚫 Adopted'}
+              
+              {/* DYNAMIC STATUS BADGE */}
+              <span style={{...styles.badge, backgroundColor: badgeStyle.bg, color: badgeStyle.color}}>
+                {badgeStyle.text}
               </span>
             </div>
           </div>
@@ -78,16 +91,47 @@ const PetDetails = () => {
             </p>
           </div>
 
-          {/* Buttons */}
+          {/* Buttons - HANDLES AVAILABLE, PENDING, AND ADOPTED */}
           <div style={styles.buttonGroup}>
-              <button 
-                  onClick={() => setIsModalOpen(true)} // Opens the modal
-                  style={styles.adoptBtn}
-                  onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-                  onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
-              >
-                  ADOPT NOW
-              </button>
+              {pet.status === 'AVAILABLE' ? (
+                // 1. IF AVAILABLE
+                <button 
+                    onClick={() => setIsModalOpen(true)} 
+                    style={styles.adoptBtn}
+                    onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
+                    onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
+                >
+                    ADOPT NOW
+                </button>
+              ) : pet.status === 'PENDING' ? (
+                // 2. IF PENDING (To be approved by admin)
+                <button 
+                    disabled
+                    style={{
+                      ...styles.adoptBtn, 
+                      backgroundColor: '#ed8936', // Orange color
+                      cursor: 'not-allowed', 
+                      boxShadow: 'none',
+                      transform: 'none'
+                    }}
+                >
+                    WAITING FOR ADMIN APPROVAL
+                </button>
+              ) : (
+                // 3. IF ADOPTED
+                <button 
+                    disabled
+                    style={{
+                      ...styles.adoptBtn, 
+                      backgroundColor: '#ccc', // Grey color
+                      cursor: 'not-allowed', 
+                      boxShadow: 'none',
+                      transform: 'none'
+                    }}
+                >
+                    ALREADY ADOPTED
+                </button>
+              )}
               
               <button 
                   onClick={() => navigate('/home')}
@@ -103,7 +147,6 @@ const PetDetails = () => {
   );
 };
 
-// ... existing styles object (no changes needed below this line)
 const styles = {
   pageWrapper: {
     minHeight: '100vh',
