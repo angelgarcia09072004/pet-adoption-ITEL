@@ -14,7 +14,7 @@ const options = {
         url: "http://localhost:3000"
       },
       {
-        url: "https://pet-adoption-itel-deployment.vercel.app" 
+        url: "https://pet-adoption-itel.onrender.com/api-docs" 
       }
     ]
   },
